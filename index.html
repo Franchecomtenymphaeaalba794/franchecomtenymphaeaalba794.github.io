@@ -2,7 +2,14 @@
 :root{--neon:#7df9ff;--neon2:#c77dff;--neon3:#ff7eb6;--bg:#080614;--bg2:#120a2e}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Nunito',sans-serif;color:#e9e6ff;background:linear-gradient(180deg,#080614,#120a2e 50%,#080614);overflow-x:hidden;line-height:1.6}
+body{font-family:'Nunito',sans-serif;color:#e9e6ff;background:linear-gradient(120deg,#0a0820,#120a2e,#1a0a26,#0a1228,#0a0820);background-size:400% 400%;animation:bgShift 26s ease infinite;overflow-x:hidden;line-height:1.6}
+@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+/* intro overlay */
+.intro{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 50%,#1a1140,#080614);transition:opacity 1s ease,visibility 1s;}
+.intro.hide{opacity:0;visibility:hidden}
+.intro .it{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,7vw,46px);background:linear-gradient(90deg,#7df9ff,#c77dff,#ff7eb6);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;opacity:0;animation:fadeUp 1.2s ease .3s forwards}
+.intro .is{font-family:'Cormorant Garamond',serif;font-style:italic;color:#cbb6ff;margin-top:10px;opacity:0;animation:fadeUp 1.2s ease .8s forwards}
+.intro .iring{margin-top:30px;width:60px;height:60px;border-radius:50%;border:2px solid rgba(125,249,255,.3);border-top-color:#7df9ff;animation:spin 1s linear infinite;opacity:0;animation:fadeUp 1s ease 1.2s forwards,spin 1s linear infinite}
 /* scroll progress bar */
 .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:30;background:linear-gradient(90deg,#7df9ff,#c77dff,#ff7eb6);box-shadow:0 0 12px rgba(199,125,255,.8)}
 /* cursor glow */
@@ -31,7 +38,7 @@ body{font-family:'Nunito',sans-serif;color:#e9e6ff;background:linear-gradient(18
 @keyframes shoot{0%{left:-15%;top:8%;opacity:0}6%{opacity:1}18%{left:115%;top:60%;opacity:0}100%{left:115%;top:60%;opacity:0}}
 /* moon */
 .moon{position:absolute;right:7vw;top:14vh;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#cfc6ff 40%,#7d6bd6 80%);box-shadow:0 0 50px rgba(199,125,255,.5),inset -12px -12px 30px rgba(8,6,20,.6);will-change:transform;opacity:.85}
-.moon:before{content:'';position:absolute;inset:-24px;border-radius:50%;border:1px solid rgba(125,249,255,.22);animation:spin 28s linear infinite}
+.moon:before{content:'';position:absolute;inset:-22px;border-radius:50%;border:6px solid rgba(199,125,255,.18);transform:rotate(-18deg) scaleY(.32);animation:spin 40s linear infinite}
 .moon:after{content:'';position:absolute;inset:-44px;border-radius:50%;border:1px solid rgba(255,126,182,.16);animation:spin 44s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 /* floating particles */
@@ -62,7 +69,7 @@ body{font-family:'Nunito',sans-serif;color:#e9e6ff;background:linear-gradient(18
 .sec-note{text-align:center;color:#a99fd6;font-style:italic;margin-bottom:34px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:8vh}
 .card{background:rgba(255,255,255,.04);padding:26px 20px;border-radius:14px;border:1px solid rgba(125,249,255,.25);box-shadow:inset 0 0 22px rgba(125,249,255,.05);opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
-.card.in{opacity:1;transform:translateY(0)}
+.card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 0 32px rgba(199,125,255,.3),inset 0 0 22px rgba(125,249,255,.08)}
 .card .ic{width:36px;height:36px;margin-bottom:12px;filter:drop-shadow(0 0 8px rgba(125,249,255,.6))}
 .card h3{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;margin-bottom:6px;color:#eafcff}
 .card p{font-size:14px;color:#b9b2e0}
@@ -90,7 +97,12 @@ summary{font-family:'Nunito',sans-serif;font-weight:600;color:#eafcff;cursor:poi
 summary:after{content:"+";color:var(--neon);font-size:20px}
 details[open] summary:after{content:"\2212"}
 details p{padding:0 0 16px;color:#b9b2e0;font-size:14px}
-/* brand note */
+/* testimonials */
+.reviews{padding:14vh 0}
+.review{background:rgba(255,255,255,.04);border:1px solid rgba(125,249,255,.22);border-radius:16px;padding:22px;margin:18px 0;box-shadow:inset 0 0 22px rgba(199,125,255,.06);opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.review.in{opacity:1;transform:translateY(0)}
+.review .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#e9e6ff;line-height:1.5}
+.review .a{margin-top:12px;font-size:13px;color:var(--neon);font-weight:600;letter-spacing:1px}
 .note-band{font-size:16px;color:#bdb6e0;text-align:center;max-width:560px;margin:0 auto;padding:14vh 0}
 .note-band b{color:#fff}
 .final{text-align:center;padding:16vh 0 20vh}
@@ -99,6 +111,11 @@ footer{position:relative;z-index:2;text-align:center;color:#8f86bd;font-size:13p
 footer a{color:var(--neon);text-decoration:none}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.cta.ghost{margin:14px 0 0}.stage,.stage:nth-child(even){flex-direction:column;text-align:center;transform:translateY(40px)}.stage.in,.stage:nth-child(even).in{transform:translateY(0)}.moon{width:80px;height:80px;right:4vw}}
 </style></head><body>
+<div class="intro" id="intro">
+  <div class="it">Pregnancy Journal</div>
+  <div class="is">a quiet keepsake, floating through the stars</div>
+  <div class="iring"></div>
+</div>
 <div class="sky">
   <div class="stars" id="s1"></div>
   <div class="stars2" id="s2"></div>
@@ -192,6 +209,13 @@ footer a{color:var(--neon);text-decoration:none}
   </div>
 </section>
 
+<section class="wrap reviews">
+  <div class="reveal"><h2 class="sec-title">From the mamas</h2><div class="sec-note">words from early readers</div></div>
+  <div class="review"><div class="q">“I opened it at week 12 and just started crying happy tears. It made me slow down and notice the little things.”</div><div class="a">— HANNAH R.</div></div>
+  <div class="review"><div class="q">“The fruit-size facts were my favourite part — my partner and I guessed every single week. Such a soft, lovely book.”</div><div class="a">— MAYA L.</div></div>
+  <div class="review"><div class="q">“Bought it as a shower gift and ended up ordering one for myself too. The prompts do the thinking for you.”</div><div class="a">— DANIELA K.</div></div>
+</section>
+
 <section class="wrap final" id="buy">
   <div class="reveal"><h2 class="sec-title">Ready to begin?</h2>
   <p>A quiet, beautiful keepsake — for you, and for the little one you'll one day read it with.</p>
@@ -203,7 +227,10 @@ footer a{color:var(--neon);text-decoration:none}
 <script>
 // scroll reveal
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15});
-document.querySelectorAll('.reveal,.card,.stage,.thumb').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal,.card,.stage,.thumb,.review').forEach(el=>io.observe(el));
+// intro overlay
+const intro=document.getElementById('intro');
+setTimeout(()=>intro.classList.add('hide'),2600);
 // floating particles generator
 const sky=document.querySelector('.sky');
 for(let i=0;i<14;i++){
@@ -245,7 +272,7 @@ window.addEventListener('touchmove',e=>{const t=e.touches[0];if(t)moveGlow(t.cli
 window.addEventListener('mouseleave',()=>glow.style.opacity='0');
 // shooting stars
 const shower=document.getElementById('shower');
-for(let i=0;i<5;i++){
+for(let i=0;i<9;i++){
   const s=document.createElement('div');s.className='shoot';
   s.style.top=(Math.random()*60)+'vh';
   s.style.left=(-10+Math.random()*20)+'vw';
